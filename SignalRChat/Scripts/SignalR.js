@@ -7,14 +7,14 @@
         var encodedName = $('<div />').text(name).html();
         var encodedMsg = $('<div />').text(message).html();
         var hora = new Date();
-        document.getElementById("hora").innerHTML = hora.getHours() + ":" + hora.getMinutes();
+        //document.getElementById("hora").innerHTML = hora.getHours() + ":" + hora.getMinutes();
 
 
         // Add the message to the page.
-        $('#discussion').append('<li><strong>' + encodedName + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
+        $('#discussion').append('<div class="form-control"><header class="bg-dark form-control">' + encodedName + '<p class="float-right">' + hora.getHours() + ":" + hora.getMinutes() + '</p>' + '</header><hr>&nbsp;&nbsp;' + encodedMsg + '</div></br>');
     };
     // Get the user name and store it to prepend to messages.
-    $('#displayname').val(prompt('Enter your name:', ''));
+    $('#displayname').val(prompt('Por favor, insira seu nome:', ''));
     // Set initial focus to message input box.
     $('#message').focus();
     // Start the connection.

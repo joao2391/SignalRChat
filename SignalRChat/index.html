@@ -1,50 +1,86 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Exemplo de chat box com Microsoft.AspNet.SignalR</title>
+    <title>DingSec - Suporte Online</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <link rel="shortcut icon" href="img/LogoAbaNavegador.ico">
     <link href="Content/Chat.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700">
-
+    <link href="~/Content/sweetalert/sweet-alert.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="Content/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Page level plugin CSS-->
+    <link href="Content/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="Content/sb-admin.css" rel="stylesheet">
+    <script src="~/Scripts/sweetalert.min.js" charset="iso-8859-1"></script>
 </head>
 <body>
-    <div id="live-chat">
 
-        <header class="clearfix">
+    <!-- Navigation-->
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="live-chat">
+                <header class="clearfix">
+                    <a class="float-right" data-toggle="modal" data-target="#exampleModal" style="margin-right: 2%; cursor: pointer;">
+                        <i class="fa fa-fw fa-window-close" style="font-size: 25px;"></i>
+                    </a>
+                    <h4 class="text-center">Suporte Online DingSec</h4>
+                    <span class="chat-message-counter" id="contador"></span>
+                </header>
 
-            <a href="#" class="chat-close">x</a>
+                <div class="chat" style="margin-left: -3%;">
+                    <div class="chat-history">
+                        <span class="chat-time" id="hora"></span>
+                        <ul id="discussion"> </ul>
 
-            <h4>Chat-Suporte</h4>
-
-            <span class="chat-message-counter" id="contador"></span>
-
-        </header>
-
-        <div class="chat">
-
-            <div class="chat-history">
-                <hr>
-                <span class="chat-time" id="hora"></span>
-                <ul id="discussion">  </ul>
-                <hr>
+                    </div>
+                </div>
+                <footer class="footer" style="border-top: 2px solid #d3d3d3;">
+                    <br />
+                    <div class="col-lg-12 form-inline input-group">
+                        <input type="text" class="form-control col-lg-auto float-left" placeholder="Digite sua mensagem…" id="message" autofocus style="margin-right: 4px;">
+                        <button class="btn btn-outline-success col-lg-auto" type="submit" id="sendmessage">
+                            <i class="fa fa-check"></i>
+                            Enviar
+                        </button>
+                        <input type="hidden" id="displayname" />
+                    </div>
+                </footer>
             </div>
-
-            <fieldset>
-
-                <input type="text" placeholder="Type your message…" id="message" autofocus>
-                <input type="button" id="sendmessage" value="Send" />
-                <input type="hidden" id="displayname" />
-
-            </fieldset>
-
-
-
         </div>
 
-    </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js">
+        </script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js">
-    </script>
+        <div class="col-lg-4">
+            <!-- Logout Modal-->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Deseja Sair?</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-dark " id="sair" type="button" data-dismiss="modal" onclick="close(location.href);">Sair</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--Script references. -->
     <!--Reference the jQuery library. -->
@@ -58,6 +94,6 @@
     <!-- Reference the SignalR functions-->
     <script src="Scripts/SignalR.js"></script>
     <!--Add script to update the page and send messages.-->
-
+    <script src="Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
