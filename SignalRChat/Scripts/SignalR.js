@@ -25,5 +25,13 @@
             // Clear text box and reset focus for next comment.
             $('#message').val('').focus();
         });
+
+        $('#message').keypress(function (event) {
+            if (event.which == 13 || event.keyCode == 13) {
+                chat.server.send($('#displayname').val(), $('#message').val());
+                $('#message').val('').focus();
+            }
+        });
     });
 });
+

@@ -132,7 +132,7 @@ p {
 
 .chat-history {
     padding: 8px;
-    max-height: 500px;
+    max-height: 480px;
     overflow-y: scroll;
 }
 
